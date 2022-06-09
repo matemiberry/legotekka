@@ -11,16 +11,14 @@ public class PlayerAnimation : MonoBehaviour
 
     protected Vector3 LeanTowards;
     protected Vector3 LeanTowardsVel;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         Animator = GetComponent<Animator>();
         Rigidbody = transform.parent.GetComponent<Rigidbody>();
         Player = transform.parent.GetComponent<Player>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         var lean = new Vector3(Player.Input.RunX, 0, Player.Input.RunZ);

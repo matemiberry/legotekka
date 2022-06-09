@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlaceBrick : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class PlaceBrick : MonoBehaviour
     protected Brick CurrentBrick;
     protected bool PositionOk;
 
-    protected int MouseInput0 = 0;
-    protected int MouseInput1 = 1;
+    protected ModeChange ModeChange;
 
+    public static int MouseInput0 = 0;
+    public static int MouseInput1 = 1;
+    
     void Awake()
     {
         Controller = GetComponent<Controller>();
@@ -46,18 +49,20 @@ public class PlaceBrick : MonoBehaviour
 
         if (CurrentBrick != null)
         {
-            if (Physics.Raycast(Camera.main.transform.position + Vector3.up * 0.1f * Controller.CameraDistance, Camera.main.transform.forward, out var hitInfo, float.MaxValue, LegoLogic.LayerMaskLego))
+            if (Physics.Raycast(Camera.main.transform.position + Vector3.up * 0.1f * Controller.CameraDistance, 
+                    Camera.main.transform.forward, out var hitInfo, float.MaxValue, LegoLogic.LayerMaskLego))
             {
 
-                //snap to grid
+                // Обращение к сетке
                 var position = LegoLogic.SnapToGrid(hitInfo.point);
 
-                //try to find a collision free position
+                // Поиск свободной позиции установки
                 var placePosition = position;
                 PositionOk = false;
                 for (int i = 0; i < 10; i++)
                 {
-                    var collider = Physics.OverlapBox(placePosition + CurrentBrick.transform.rotation * CurrentBrick.Collider.center, CurrentBrick.Collider.size / 2, CurrentBrick.transform.rotation, LegoLogic.LayerMaskLego);
+                    var collider = Physics.OverlapBox(placePosition + CurrentBrick.transform.rotation * CurrentBrick.Collider.center, 
+                        CurrentBrick.Collider.size / 2, CurrentBrick.transform.rotation, LegoLogic.LayerMaskLego);
                     PositionOk = collider.Length == 0;
                     if (PositionOk)
                         break;
@@ -71,7 +76,9 @@ public class PlaceBrick : MonoBehaviour
                     CurrentBrick.transform.position = position;
             }
         }
-
+        
+        
+        
         //Place the brick
         if (Input.GetMouseButtonDown(MouseInput0) && CurrentBrick != null && PositionOk)
         {
@@ -87,18 +94,18 @@ public class PlaceBrick : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             CurrentBrick.transform.Rotate(Vector3.up, 90);
 
-        //Rotate Brick
-        if (Input.GetKeyDown(KeyCode.Z))
-            if (MouseInput0 == 0 && MouseInput1 == 1)
-            {
-                MouseInput0 = 1;
-                MouseInput1 = 0;
-            }
-            else
-            {
-                MouseInput0 = 0;
-                MouseInput1 = 1;
-            }
+        // //Rotate Brick
+        // if (Input.GetKeyDown(KeyCode.Z))
+        //     if (MouseInput0 == 0 && MouseInput1 == 1)
+        //     {
+        //         MouseInput0 = 1;
+        //         MouseInput1 = 0;
+        //     }
+        //     else
+        //     {
+        //         MouseInput0 = 0;
+        //         MouseInput1 = 1;
+        //     }
 
         //Delete Brick
         if (Input.GetMouseButtonDown(MouseInput1))
@@ -110,7 +117,7 @@ public class PlaceBrick : MonoBehaviour
                 {
                     GameObject.DestroyImmediate(brick.gameObject);
                 }
-
+        
             }
         }
 

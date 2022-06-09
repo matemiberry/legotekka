@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        SetMode(ControllerMode.Play);
+        SetMode(ControllerMode.Build);
         Player = FindObjectOfType<Player>();
         LastMousePos = Input.mousePosition;
     }
@@ -123,16 +123,16 @@ public class Controller : MonoBehaviour
         switch (mode)
         {
             case ControllerMode.Build:
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
             case ControllerMode.Menu:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
             case ControllerMode.Play:
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
         }
     }
