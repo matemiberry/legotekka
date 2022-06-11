@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: RingMain
   m_EditorClassIdentifier: 
   Elements:
-  - {fileID: 11400000, guid: 67180c504a45f9f4188cd7e4c6f19dd5, type: 2}
-  - {fileID: 11400000, guid: 90386eae048adb44d8e6b7fcea3aba7c, type: 2}
-  - {fileID: 11400000, guid: ddbd54b966c736b42adb2bfea5bf4ae8, type: 2}
-  - {fileID: 11400000, guid: 82aea013d6910aa4a814704a5a68bb78, type: 2}
+  - {fileID: 11400000, guid: b0a54b1d6745efa42bdb01af1e7d0ab4, type: 2}
+  - {fileID: 11400000, guid: e3645f594073e894f8e4026f4cde6741, type: 2}
+  - {fileID: 11400000, guid: cc83ae5bd23071044bd310fc8473461b, type: 2}

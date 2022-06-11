@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8c20aa7bc4a6f4186b7e62e778f700, type: 3}
-  m_Name: element4
+  m_Name: elementBrick2
   m_EditorClassIdentifier: 
   Name: 1
-  Icon: {fileID: -1816755548282093316, guid: d1878aee8b3feb64b80a589fa8558b4e, type: 3}
+  Icon: {fileID: -1617233186443608555, guid: c941c7c5ad9a8fa4b96e7e0054b2952e, type: 3}
   NextRing: {fileID: 11400000, guid: 826938b4cb9b9c145b204e708d43e2ef, type: 2}
