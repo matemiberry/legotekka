@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,6 +59,25 @@ public class PlaceBrick : MonoBehaviour
 
                 // Try to find a collision free position
                 var placePosition = position;
+
+                // Костыль для ебаной детали 1х2
+                if (CurrentBrick.name == "PrefabBrick3(Clone)" && CurrentBrick.transform.rotation.y is 0)
+                {
+                    placePosition.z = placePosition.z + 0.1f;
+                }
+                else if (CurrentBrick.name == "PrefabBrick3(Clone)" && 
+                    Math.Abs(CurrentBrick.transform.rotation.y) < 0.8 && 
+                    Math.Abs(CurrentBrick.transform.rotation.y) > 0.7 )
+                {
+                    placePosition.x = placePosition.x + 0.1f;
+                }
+                else if (CurrentBrick.name == "PrefabBrick3(Clone)" && Math.Abs(CurrentBrick.transform.rotation.y) is 1)
+                {
+                    placePosition.z = placePosition.z + 0.1f;
+                }
+                
+                    
+                
                 PositionOk = false;
                 for (int i = 0; i < 10; i++)
                 {
