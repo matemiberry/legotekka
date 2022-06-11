@@ -123,16 +123,16 @@ public class Controller : MonoBehaviour
         switch (mode)
         {
             case ControllerMode.Build:
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 break;
             case ControllerMode.Menu:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
             case ControllerMode.Play:
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                 break;
         }
     }

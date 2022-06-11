@@ -53,10 +53,10 @@ public class PlaceBrick : MonoBehaviour
                     Camera.main.transform.forward, out var hitInfo, float.MaxValue, LegoLogic.LayerMaskLego))
             {
 
-                // Обращение к сетке
+                // Snap to grid
                 var position = LegoLogic.SnapToGrid(hitInfo.point);
 
-                // Поиск свободной позиции установки
+                // Try to find a collision free position
                 var placePosition = position;
                 PositionOk = false;
                 for (int i = 0; i < 10; i++)
