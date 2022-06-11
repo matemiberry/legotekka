@@ -1,5 +1,5 @@
 # LEGOTEKKA 
-Mobile LEGO builder for children with developmental delay
+Insignificant LEGO builder for children with developmental delay, for Mobile and PC.
 
 
 ## CONTROLS
