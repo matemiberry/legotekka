@@ -94,18 +94,18 @@ public class PlaceBrick : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
             CurrentBrick.transform.Rotate(Vector3.up, 90);
 
-        // //Rotate Brick
-        // if (Input.GetKeyDown(KeyCode.Z))
-        //     if (MouseInput0 == 0 && MouseInput1 == 1)
-        //     {
-        //         MouseInput0 = 1;
-        //         MouseInput1 = 0;
-        //     }
-        //     else
-        //     {
-        //         MouseInput0 = 0;
-        //         MouseInput1 = 1;
-        //     }
+        //Change Buttons
+        if (Input.GetKeyDown(KeyCode.Z))
+            if (MouseInput0 == 0 && MouseInput1 == 1)
+            {
+                MouseInput0 = 1;
+                MouseInput1 = 0;
+            }
+            else
+            {
+                MouseInput0 = 0;
+                MouseInput1 = 1;
+            }
 
         //Delete Brick
         if (Input.GetMouseButtonDown(MouseInput1))
