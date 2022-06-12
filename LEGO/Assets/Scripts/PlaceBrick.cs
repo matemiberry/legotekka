@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class PlaceBrick : MonoBehaviour
 {
-    public Brick[] BrickLib;
-    public Material[] MatLib;
+    public static Brick[] BrickLib;
+    public static Material[] MatLib;
     protected Brick PrefabBrick;
     public Material TransparentMat;
     protected Material BrickMat;
     
     protected Controller Controller;
-    protected Brick CurrentBrick;
+    public static Brick CurrentBrick;
     protected bool PositionOk;
 
     protected ModeChange ModeChange;
@@ -21,21 +21,18 @@ public class PlaceBrick : MonoBehaviour
     public static int MouseInput0 = 0;
     public static int MouseInput1 = 1;
     
+    
+
     void Awake()
     {
         Controller = GetComponent<Controller>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PrefabBrick = BrickLib[0];
-        BrickMat = MatLib[0];
-    }
-
     // Update is called once per frame
     void Update()
     {
+        PrefabBrick = BrickLib[0];
+        BrickMat = MatLib[0];
         if (Controller.Mode != Controller.ControllerMode.Build)
         {
             if (CurrentBrick != null)
@@ -50,8 +47,11 @@ public class PlaceBrick : MonoBehaviour
 
         if (CurrentBrick != null)
         {
-            if (Physics.Raycast(Camera.main.transform.position + Vector3.up * 0.1f * Controller.CameraDistance, 
-                    Camera.main.transform.forward, out var hitInfo, float.MaxValue, LegoLogic.LayerMaskLego))
+            RaycastHit hitInfo;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+            if (Physics.Raycast(ray, out hitInfo))
             {
 
                 // Snap to grid
@@ -100,7 +100,7 @@ public class PlaceBrick : MonoBehaviour
         
         
         //Place the brick
-        if (Input.GetMouseButtonDown(MouseInput0) && CurrentBrick != null && PositionOk)
+        if (Input.GetMouseButtonUp(MouseInput0) && CurrentBrick != null && PositionOk)
         {
             CurrentBrick.Collider.enabled = true;
             CurrentBrick.SetMaterial(BrickMat);
@@ -108,6 +108,7 @@ public class PlaceBrick : MonoBehaviour
             CurrentBrick = null;
             SetNextBrick();
             CurrentBrick.transform.rotation = rot;
+            Controller.Mode = Controller.ControllerMode.Play;
         }
 
         //Rotate Brick
@@ -130,7 +131,10 @@ public class PlaceBrick : MonoBehaviour
         //Delete Brick
         if (Input.GetMouseButtonDown(MouseInput1))
         {
-            if (Physics.Raycast(Camera.main.transform.position + Vector3.up * 0.1f * Controller.CameraDistance, Camera.main.transform.forward, out var hitInfo, float.MaxValue, LegoLogic.LayerMaskLego))
+            RaycastHit hitInfo;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hitInfo))
             {
                 var brick = hitInfo.collider.GetComponent<Brick>();
                 if(brick != null)

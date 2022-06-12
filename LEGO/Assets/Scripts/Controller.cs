@@ -26,13 +26,13 @@ public class Controller : MonoBehaviour
 
     protected Vector3 LastMousePos;
 
-    [HideInInspector]
-    public ControllerMode Mode;
+    
+    public static ControllerMode Mode;
 
     // Use this for initialization
     void Start()
     {
-        SetMode(ControllerMode.Build);
+        SetMode(ControllerMode.Play);
         Player = FindObjectOfType<Player>();
         LastMousePos = Input.mousePosition;
     }
@@ -123,16 +123,16 @@ public class Controller : MonoBehaviour
         switch (mode)
         {
             case ControllerMode.Build:
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
             case ControllerMode.Menu:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 break;
             case ControllerMode.Play:
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 break;
         }
     }
