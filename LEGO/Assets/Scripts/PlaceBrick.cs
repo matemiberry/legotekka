@@ -66,17 +66,17 @@ public class PlaceBrick : MonoBehaviour
                 var placePosition = position;
 
                 // Костыль для ебаной детали 1х2
-                if (CurrentBrick.name == "PrefabBrick3(Clone)" && CurrentBrick.transform.rotation.y is 0)
+                if (CurrentBrick.name == "0(Clone)"  && CurrentBrick.transform.rotation.y is 0)
                 {
                     placePosition.z = placePosition.z + 0.1f;
                 }
-                else if (CurrentBrick.name == "PrefabBrick3(Clone)" && 
+                else if (CurrentBrick.name == "0(Clone)" && 
                     Math.Abs(CurrentBrick.transform.rotation.y) < 0.8 && 
                     Math.Abs(CurrentBrick.transform.rotation.y) > 0.7 )
                 {
                     placePosition.x = placePosition.x + 0.1f;
                 }
-                else if (CurrentBrick.name == "PrefabBrick3(Clone)" && Math.Abs(CurrentBrick.transform.rotation.y) is 1)
+                else if (CurrentBrick.name == "0(Clone)" && Math.Abs(CurrentBrick.transform.rotation.y) is 1)
                 {
                     placePosition.z = placePosition.z + 0.1f;
                 }
