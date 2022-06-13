@@ -66,7 +66,7 @@ public class PlaceBrick : MonoBehaviour
                 var placePosition = position;
 
                 // Костыль для ебаной детали 1х2
-                if (CurrentBrick.name == "0(Clone)"  && CurrentBrick.transform.rotation.y is 0)
+                if (CurrentBrick.name == "0(Clone)" && CurrentBrick.transform.rotation.y is 0)
                 {
                     placePosition.z = placePosition.z + 0.1f;
                 }

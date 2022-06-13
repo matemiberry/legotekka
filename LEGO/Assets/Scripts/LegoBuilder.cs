@@ -45,13 +45,13 @@ public class LegoBuilder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i <= giraffeScheme.Length;)
+        // for (int i = 0; i <= giraffeScheme.Length;)
+        // {
+        //     
+        // }
+        if (GameObject.Find((string) giraffeScheme[0,0]).transform.position == (Vector3) giraffeScheme[0,1] && Input.GetMouseButtonUp(0))
         {
-            if (GameObject.Find((string) giraffeScheme[i,0]).transform.position == (Vector3) giraffeScheme[i,1] && Input.GetMouseButtonUp(0))
-            {
-                GameObject.Find("3(Clone)").transform.position = (Vector3) giraffeScheme[i+1,1];
-                i++;
-            }
+            GameObject.Find("3(Clone)").transform.position = (Vector3) giraffeScheme[1,1];
         }
     }
 }
