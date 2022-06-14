@@ -24,12 +24,16 @@ public class Controller : MonoBehaviour
     protected Vector3 CharacterPivot;
     protected Vector3 LookDirection;
 
-    protected Vector3 LastMousePos;
+    public static Vector3 LastMousePos;
+    public static Camera camer;
+    public static Transform tar;
     [SerializeField] private Camera cam;
     [SerializeField] private Transform target;
-    [SerializeField] private float distanceToTarget;
+    public static float distanceToTarget = 5;
+    //public static float distant;
     
-    private Vector3 previousPosition;
+    public static Vector3 previousPosition;
+    
     
     public static ControllerMode Mode;
 
@@ -37,13 +41,18 @@ public class Controller : MonoBehaviour
     void Start()
     {
         SetMode(ControllerMode.Play);
+        camer = cam;
+        tar = target;
     }
 
     // Update is called once per frame
     void Update()
     {
+        tar = target;
+        camer = cam;
         distanceToTarget = Mathf.Clamp(distanceToTarget + Input.mouseScrollDelta.y, 1, 10);
-        
+        // distant = distanceToTarget;
+
         // if (Mode == ControllerMode.Play)
         // {
         //     if (Input.GetKeyDown(KeyCode.Tab))
@@ -58,7 +67,7 @@ public class Controller : MonoBehaviour
         //         SetMode(ControllerMode.Play);
         //     }
         // }
-        
+
         // if (Mode == ControllerMode.Play)
         // {
         //     //scroll to zoom
@@ -79,6 +88,7 @@ public class Controller : MonoBehaviour
         //     CharacterPivot = Quaternion.AngleAxis(InputRotationX, Vector3.up) * CameraPivot;
         //
         // }
+        
         
         if (Mode == ControllerMode.Build)
         {
