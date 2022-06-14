@@ -6,31 +6,32 @@ using UnityEngine;
 public class LegoBuilder : MonoBehaviour
 {
     public List<GameObject> bricksList;
+    public static int count = 0;
     // Start is called before the first frame update
-    
-    readonly object[,] giraffeScheme = new object[11,2]
+
+    readonly object[,] giraffeScheme = new object[11, 2]
     {
-        {"0(Clone)", new Vector3(-0.2f, 0f, 0.7f)},
-        {"0(Clone)", new Vector3(-0.2f, 0f, 0.3f)},
-        {"0(Clone)", new Vector3(-0.2f, 0.24f, 0.3f)},
-        {"0(Clone)", new Vector3(-0.2f, 0.24f, 0.7f)},
-        {"0(Clone)", new Vector3(-0.2f, 0.48f, 0.3f)},
-        {"1(Clone)", new Vector3(-0.2f, 0.48f, 0.6f)},
-        {"1(Clone)", new Vector3(-0.2f, 0.72f, 0.4f)},
-        {"0(Clone)", new Vector3(-0.2f, 0.96f, 0.3f)},
-        {"0(Clone)", new Vector3(-0.2f, 1.2f, 0.3f)},
-        {"1(Clone)", new Vector3(-0.2f, 1.44f, 0.2f)},
-        {"0(Clone)", new Vector3(-0.2f, 1.68f, 0.3f)}
+        {"Clone0", new Vector3(-0.2f, 0f, 0.7f)},
+        {"Clone1", new Vector3(-0.2f, 0f, 0.3f)},
+        {"Clone2", new Vector3(-0.2f, 0.24f, 0.3f)},
+        {"Clone3", new Vector3(-0.2f, 0.24f, 0.7f)},
+        {"Clone4", new Vector3(-0.2f, 0.48f, 0.3f)},
+        {"Clone5", new Vector3(-0.2f, 0.48f, 0.6f)},
+        {"Clone6", new Vector3(-0.2f, 0.72f, 0.4f)},
+        {"Clone7", new Vector3(-0.2f, 0.96f, 0.3f)},
+        {"Clone8", new Vector3(-0.2f, 1.2f, 0.3f)},
+        {"Clone9", new Vector3(-0.2f, 1.44f, 0.2f)},
+        {"Clone10", new Vector3(-0.2f, 1.68f, 0.3f)}
     };
-    
+
 
     void Start()
     {
         bricksList = new List<GameObject>(Resources.LoadAll<GameObject>("Bricks"));
-        Instantiate(bricksList[3], (Vector3) giraffeScheme[0,1], Quaternion.identity);
+        Instantiate(bricksList[3], (Vector3)giraffeScheme[0, 1], Quaternion.identity);
     }
 
-    // 0, -0.2f, 0f, 0.7f
+    // Clone0, -0.2f, 0f, 0.7f
     // 0, -0.2f, 0f, 0.3f
     // 0, -0.2f, 0.24f, 0.3f
     // 0, -0.2f, 0.24f, 0.7f
@@ -41,17 +42,27 @@ public class LegoBuilder : MonoBehaviour
     // 0, -0.2f, 1.2f, 0.3f
     // 1, -0.2f, 1.44f, 0.2f
     // 0, -0.2f, 1.68f, 0.3f
-    
+
     // Update is called once per frame
     void Update()
     {
-        // for (int i = 0; i <= giraffeScheme.Length;)
-        // {
-        //     
-        // }
-        if (GameObject.Find((string) giraffeScheme[0,0]).transform.position == (Vector3) giraffeScheme[0,1] && Input.GetMouseButtonUp(0))
+        if (GameObject.Find((string)giraffeScheme[count, 0]) != null)
         {
-            GameObject.Find("3(Clone)").transform.position = (Vector3) giraffeScheme[1,1];
+            if (GameObject.Find((string)giraffeScheme[count, 0]).transform.position == (Vector3)giraffeScheme[count, 1] && Input.GetMouseButtonUp(0))
+            {
+                if (count != giraffeScheme.Length)
+                {
+                    if (count == 4 || count == 5 || count == 8)
+                    {
+                        Instantiate(bricksList[4], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(bricksList[3], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
+                    }
+                    count++;
+                }
+            }
         }
     }
 }

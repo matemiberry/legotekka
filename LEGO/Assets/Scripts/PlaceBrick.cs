@@ -11,7 +11,7 @@ public class PlaceBrick : MonoBehaviour
     protected Brick PrefabBrick;
     public Material TransparentMat;
     protected Material BrickMat;
-    
+    public static int counter;
     protected Controller Controller;
     public static Brick CurrentBrick;
     protected bool PositionOk;
@@ -108,6 +108,8 @@ public class PlaceBrick : MonoBehaviour
         if (Input.GetMouseButtonUp(MouseInput0) && CurrentBrick != null && PositionOk)
         {
             CurrentBrick.Collider.enabled = true;
+            CurrentBrick.name = "Clone" + counter;
+            counter++;
             CurrentBrick.SetMaterial(BrickMat);
             var rot = CurrentBrick.transform.rotation;
             CurrentBrick = null;
@@ -139,6 +141,7 @@ public class PlaceBrick : MonoBehaviour
                     curButton.GetComponent<Image>().sprite = Click4x2.sprites[Click4x2.count];
                     Controller.Mode = Controller.ControllerMode.Play;
                     ClickDelete.active = false;
+                    counter--;
                 }
         
             }
