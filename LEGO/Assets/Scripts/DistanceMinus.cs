@@ -6,14 +6,11 @@ using UnityEngine.UI;
 public class DistanceMinus : MonoBehaviour
 {
     public Button yourButton;
-    // Start is called before the first frame update
     void Start()
     {
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
-
-    // Update is called once per frame
     void TaskOnClick()
     {
         Controller.distanceToTarget = Mathf.Clamp(Controller.distanceToTarget + 0.5f, 1, 10);

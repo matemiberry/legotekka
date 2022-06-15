@@ -2,7 +2,7 @@
 
 public static class LegoLogic
 {
-    public static readonly Vector3 Grid = new Vector3(0.2f, 0.06f, 0.2f);
+    public static readonly Vector3 Grid = new Vector3(0.2f, 0.08f, 0.2f);
     public static int LayerMaskLego = LayerMask.GetMask("Lego");
 
     public static Vector3 SnapToGrid(Vector3 input)

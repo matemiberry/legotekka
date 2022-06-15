@@ -7,8 +7,6 @@ public class LegoBuilder : MonoBehaviour
 {
     public List<GameObject> bricksList;
     public static int count = 0;
-    // Start is called before the first frame update
-
     readonly object[,] giraffeScheme = new object[11, 2]
     {
         {"Clone0", new Vector3(-0.2f, 0f, 0.7f)},

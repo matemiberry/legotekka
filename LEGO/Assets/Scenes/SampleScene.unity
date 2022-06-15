@@ -725,11 +725,11 @@ MonoBehaviour:
   - {fileID: 430984766625829748, guid: cb640cbb74a04014aa7b050a0664d733, type: 3}
   - {fileID: 1315715222634784446, guid: cb640cbb74a04014aa7b050a0664d733, type: 3}
   brick:
+  - {fileID: 216192788925747579, guid: 6089ea94e720b67449ab42b55f9150f3, type: 3}
   - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
+  - {fileID: 216192788925747579, guid: 6089ea94e720b67449ab42b55f9150f3, type: 3}
   - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
+  - {fileID: 216192788925747579, guid: 6089ea94e720b67449ab42b55f9150f3, type: 3}
   - {fileID: 3308457567685337070, guid: d6defacee4a2b4a4c9cd94b18d9104bb, type: 3}
   - {fileID: 3308457567685337070, guid: d6defacee4a2b4a4c9cd94b18d9104bb, type: 3}
   - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
@@ -1422,34 +1422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boost: 3.5
-  positionLerpTime: 0.2
-  mouseSensitivityCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 5
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 2.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotationLerpTime: 0.01
-  invertY: 0
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
@@ -2066,7 +2038,7 @@ PrefabInstance:
     - target: {fileID: 2818658056231125007, guid: fe4c971fb23d3754999ade283a96cebc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1244888271761568284, guid: fe4c971fb23d3754999ade283a96cebc,
         type: 3}
