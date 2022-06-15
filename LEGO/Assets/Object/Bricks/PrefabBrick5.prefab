@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1043849526583909639}
   - component: {fileID: 7700585545972401214}
   - component: {fileID: 5057647335685927170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,8 +89,8 @@ GameObject:
   - component: {fileID: 360196509436042877}
   - component: {fileID: 6918790116285843437}
   - component: {fileID: 4334172465355671050}
-  m_Layer: 0
-  m_Name: 6
+  m_Layer: 10
+  m_Name: PrefabBrick5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

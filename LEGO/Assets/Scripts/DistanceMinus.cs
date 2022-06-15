@@ -11,6 +11,7 @@ public class DistanceMinus : MonoBehaviour
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
     }
+    
     void TaskOnClick()
     {
         Controller.distanceToTarget = Mathf.Clamp(Controller.distanceToTarget + 0.5f, 1, 10);

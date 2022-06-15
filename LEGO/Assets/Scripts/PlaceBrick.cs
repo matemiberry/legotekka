@@ -65,7 +65,7 @@ public class PlaceBrick : MonoBehaviour
                 // Try to find a collision free position
                 var placePosition = position;
 
-                // Костыль для ебаной детали 1х2
+                // Костыль для детали 1х2
                 if (CurrentBrick.name == "0(Clone)" && CurrentBrick.transform.rotation.y is 0)
                 {
                     placePosition.z = placePosition.z + 0.1f;
@@ -104,26 +104,25 @@ public class PlaceBrick : MonoBehaviour
         
         
 
-        //Place the brick
+        // Place Brick
         if (Input.GetMouseButtonUp(MouseInput0) && CurrentBrick != null && PositionOk)
         {
             CurrentBrick.Collider.enabled = true;
             CurrentBrick.name = "Clone" + counter;
             counter++;
             CurrentBrick.SetMaterial(BrickMat);
-            var rot = CurrentBrick.transform.rotation;
+            // var rot = CurrentBrick.transform.rotation;
             CurrentBrick = null;
             SetNextBrick();
-            CurrentBrick.transform.rotation = rot;
+            // CurrentBrick.transform.rotation = rot;
             Controller.Mode = Controller.ControllerMode.Play;
-            
         }
 
-        //Rotate Brick
+        // Rotate Brick
         if (Input.GetKeyDown(KeyCode.E))
             CurrentBrick.transform.Rotate(Vector3.up, 90);
 
-        //Delete Brick
+        // Delete Brick
         if (Input.GetMouseButtonDown(MouseInput1))
         {
             RaycastHit hitInfo;
