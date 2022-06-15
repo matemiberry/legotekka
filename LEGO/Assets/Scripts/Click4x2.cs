@@ -16,7 +16,9 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public static Sprite[] sprites;
     public static Sprite[] spritesRotate;
 
-
+    // {Brickname, sprite, sprite_side, x, y, z, ghost, rotate, material} 
+    // {Brickname, sprite, sprite_side, x, y, z, ghost, rotate, material}
+    
     private bool _isPressed = false; //фиксируем состояние кнопки (нажата/не нажата)
 
     //при нажатии

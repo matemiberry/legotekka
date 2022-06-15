@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+using System.Linq;
 
 public class LegoBuilder : MonoBehaviour
 {
-    public List<GameObject> bricksList;
-    public static int count = 0;
-    readonly object[,] giraffeScheme = new object[11, 2]
+    public GameObject[] bricksList;
+    public static int count;
+
+    private readonly object[,] giraffeScheme = new object[11, 2]
     {
         {"Clone0", new Vector3(-0.2f, 0f, 0.7f)},
         {"Clone1", new Vector3(-0.2f, 0f, 0.3f)},
@@ -25,8 +28,8 @@ public class LegoBuilder : MonoBehaviour
 
     void Start()
     {
-        bricksList = new List<GameObject>(Resources.LoadAll<GameObject>("Bricks"));
-        Instantiate(bricksList[4], (Vector3)giraffeScheme[0, 1], Quaternion.identity);
+        bricksList = Resources.LoadAll("Ghosts", typeof(GameObject)).Cast<GameObject>().ToArray();
+        Instantiate(bricksList[0], (Vector3)giraffeScheme[0, 1], Quaternion.identity);
     }
     
     void Update()
@@ -39,11 +42,11 @@ public class LegoBuilder : MonoBehaviour
                 {
                     if (count == 4 || count == 5 || count == 8)
                     {
-                        Instantiate(bricksList[5], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
+                        Instantiate(bricksList[1], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
                     }
                     else
                     {
-                        Instantiate(bricksList[4], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
+                        Instantiate(bricksList[0], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
                     }
                     count++;
                 }
