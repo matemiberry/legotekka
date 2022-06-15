@@ -26,7 +26,7 @@ public class LegoBuilder : MonoBehaviour
     void Start()
     {
         bricksList = new List<GameObject>(Resources.LoadAll<GameObject>("Bricks"));
-        Instantiate(bricksList[3], (Vector3)giraffeScheme[0, 1], Quaternion.identity);
+        Instantiate(bricksList[4], (Vector3)giraffeScheme[0, 1], Quaternion.identity);
     }
     
     void Update()
@@ -39,11 +39,11 @@ public class LegoBuilder : MonoBehaviour
                 {
                     if (count == 4 || count == 5 || count == 8)
                     {
-                        Instantiate(bricksList[4], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
+                        Instantiate(bricksList[5], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
                     }
                     else
                     {
-                        Instantiate(bricksList[3], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
+                        Instantiate(bricksList[4], (Vector3)giraffeScheme[count + 1, 1], Quaternion.identity);
                     }
                     count++;
                 }

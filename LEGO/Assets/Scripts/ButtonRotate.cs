@@ -15,13 +15,17 @@ public class ButtonRotate : MonoBehaviour
         btn.onClick.AddListener(TaskOnClick);
     }
 
-	// Update is called once per frame
-	void TaskOnClick()
-	{
-		if (!active)
-		{
-			active = true;
+    // Update is called once per frame
+    void TaskOnClick()
+    {
+        if (!active)
+        {
+            active = true;
             curButton.GetComponent<Image>().sprite = Click4x2.spritesRotate[Click4x2.count];
+        } else
+        {
+            curButton.GetComponent<Image>().sprite = Click4x2.sprites[Click4x2.count];
+            active = false;
         }
-	}
+    }
 }

@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 1640280673}
   - component: {fileID: 1640280672}
   m_Layer: 5
-  m_Name: giraffeButton (1)
+  m_Name: TestButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1458,11 +1458,11 @@ MonoBehaviour:
   - {fileID: 430984766625829748, guid: cb640cbb74a04014aa7b050a0664d733, type: 3}
   - {fileID: 1315715222634784446, guid: cb640cbb74a04014aa7b050a0664d733, type: 3}
   brick:
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
-  - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}
+  - {fileID: 3308457567685337070, guid: d6defacee4a2b4a4c9cd94b18d9104bb, type: 3}
+  - {fileID: 1985770245644219463, guid: 00dacbb483b14af4598e6ac218ab2732, type: 3}
+  - {fileID: 5855660810255796789, guid: e468ae61718cc5c4da25b59bc78290f1, type: 3}
+  - {fileID: 6071772800660587897, guid: 70c1a6df25b08224287a4b40c4722f12, type: 3}
+  - {fileID: 4334172465355671050, guid: 615709b2ed7553347a587bdc05cfd7fa, type: 3}
   - {fileID: 3308457567685337070, guid: d6defacee4a2b4a4c9cd94b18d9104bb, type: 3}
   - {fileID: 3308457567685337070, guid: d6defacee4a2b4a4c9cd94b18d9104bb, type: 3}
   - {fileID: 2114761762347079264, guid: 2e47b64aeb22dbc459871e8ce0a7aac7, type: 3}

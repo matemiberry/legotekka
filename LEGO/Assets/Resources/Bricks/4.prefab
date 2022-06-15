@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5807761781402811745}
   - component: {fileID: 4139328281822520462}
   m_Layer: 10
-  m_Name: PrefabBrick2
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

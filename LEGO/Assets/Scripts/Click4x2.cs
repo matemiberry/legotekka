@@ -23,7 +23,7 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         sprites = newSprite;
-        
+
         _isPressed = true;
 
     }
@@ -44,15 +44,19 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 if (ButtonRotate.active)
                 {
-                    brick[count].transform.Rotate(Vector3.up, 90);
+                    brick[count].transform.localRotation = Quaternion.Euler(0, 90f, 0);
                     ButtonRotate.active = false;
+
+                } else
+                {
+                    brick[count].transform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
-                
+
                 PlaceBrick.BrickLib = new Brick[] { brick[count] };
                 PlaceBrick.MatLib = new Material[] { mat[count] };
                 count++;
                 Controller.Mode = Controller.ControllerMode.Build;
-                
+
             }
             _isPressed = false;
         }
@@ -60,4 +64,3 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     }
 
 }
-

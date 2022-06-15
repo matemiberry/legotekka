@@ -65,24 +65,34 @@ public class PlaceBrick : MonoBehaviour
                 // Try to find a collision free position
                 var placePosition = position;
 
-                // Костыль для детали 1х2
-                if (CurrentBrick.name == "0(Clone)" && CurrentBrick.transform.rotation.y is 0)
+                var rotation = CurrentBrick.transform.rotation;
+                switch (CurrentBrick.name)
                 {
-                    placePosition.z = placePosition.z + 0.1f;
+                    // Костыль для детали 1х2
+                    case "0(Clone)" when (rotation.y is 0 || Math.Abs(rotation.y) is 1):
+                        placePosition.z = placePosition.z + 0.1f;
+                        break;
+                    case "0(Clone)":
+                        placePosition.x = placePosition.x + 0.1f;
+                        break;
+                    // Crutch for Stud
+                    case "9(Clone)":
+                        placePosition.z = placePosition.z + 0.1f;
+                        placePosition.x = placePosition.x + 0.1f;
+                        break;
                 }
-                else if (CurrentBrick.name == "0(Clone)" && 
-                    Math.Abs(CurrentBrick.transform.rotation.y) < 0.8 && 
-                    Math.Abs(CurrentBrick.transform.rotation.y) > 0.7 )
+
+                // Crutch for 2x6 Plate
+                if ((CurrentBrick.name == "8(Clone)" || CurrentBrick.name == "6(Clone)") &&
+                    (CurrentBrick.transform.rotation.y is 0 || Math.Abs(CurrentBrick.transform.rotation.y) is 1))
                 {
                     placePosition.x = placePosition.x + 0.1f;
                 }
-                else if (CurrentBrick.name == "0(Clone)" && Math.Abs(CurrentBrick.transform.rotation.y) is 1)
+                else if (CurrentBrick.name == "8(Clone)" || CurrentBrick.name == "6(Clone)")
                 {
                     placePosition.z = placePosition.z + 0.1f;
                 }
-                
-                    
-                
+
                 PositionOk = false;
                 for (int i = 0; i < 10; i++)
                 {
@@ -95,10 +105,7 @@ public class PlaceBrick : MonoBehaviour
                         placePosition.y += LegoLogic.Grid.y;
                 }
 
-                if (PositionOk)
-                    CurrentBrick.transform.position = placePosition;
-                else
-                    CurrentBrick.transform.position = position;
+                CurrentBrick.transform.position = PositionOk ? placePosition : position;
             }
         }
         
