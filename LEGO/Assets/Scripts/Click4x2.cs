@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using System.Linq;
 
 public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
@@ -15,16 +17,52 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public UnityEvent onPressAction;
     public static Sprite[] sprites;
     public static Sprite[] spritesRotate;
+    
+    public Brick[] br;
+    public Material[] mtrl;
+    public Sprite[] sprt;
+    public Sprite[] sprtside;
 
+    protected Brick[] GiraffeBrick;
+    protected Material[] GiraffeMaterial;
+    protected Sprite[] GiraffeSprite;
+    protected Sprite[] GiraffeSpriteSide;
+        private void Start()
+    {
+        br = Resources.LoadAll("Bricks", typeof(Brick)).Cast<Brick>().ToArray();
+        mtrl = Resources.LoadAll("Materials", typeof(Material)).Cast<Material>().ToArray();
+        sprt = Resources.LoadAll("Sprites", typeof(Sprite)).Cast<Sprite>().ToArray();
+        
+        // sprites = Resources.LoadAll("Materials", typeof(Sprite)).Cast<Sprite>().ToArray();
+        // spritesRotate = Resources.LoadAll("Materials", typeof(Sprite)).Cast<Sprite>().ToArray();
+
+        GiraffeBrick = new[] {br[0],br[0],br[0],br[0],br[0],br[1],br[1],br[0],br[0],br[1],br[0]};
+        GiraffeMaterial = new[]
+            {mtrl[7], mtrl[7], mtrl[7], mtrl[3], mtrl[3], mtrl[7], mtrl[7], mtrl[7], mtrl[3], mtrl[7], mtrl[7]};
+        GiraffeSprite = new[]
+        {
+            sprt[10], sprt[10], sprt[10], sprt[10], sprt[10], sprt[12], sprt[12], sprt[10], sprt[10],
+            sprt[12], sprt[10],
+        };
+        GiraffeSpriteSide = new[]
+        {
+            sprt[11], sprt[11], sprt[11], sprt[11], sprt[11], sprt[12],
+            sprt[12], sprt[11], sprt[11], sprt[12], sprt[11],
+        };
+        sprites = GiraffeSprite;
+        spritesRotate = GiraffeSpriteSide;
+    }
+        
+        
     // {Brickname, sprite, sprite_side, x, y, z, ghost, rotate, material} 
     // {Brickname, sprite, sprite_side, x, y, z, ghost, rotate, material}
     
     private bool _isPressed = false; //фиксируем состояние кнопки (нажата/не нажата)
-
+    
     //при нажатии
     public void OnPointerDown(PointerEventData eventData)
     {
-        sprites = newSprite;
+        sprites = GiraffeSprite;
 
         _isPressed = true;
 
@@ -32,30 +70,30 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     //при отпускании мыши
     public void OnPointerUp(PointerEventData eventData)
     {
-        GetComponent<Image>().sprite = newSprite[count];
+        GetComponent<Image>().sprite = GiraffeSprite[count];
         _isPressed = false;
     }
-
+    
     void Update()
     {
-        spritesRotate = rotateSprite;
+        spritesRotate = GiraffeSpriteSide;
         //если кнопка нажата, выполняем метод, который задали в инспекторе
         if (_isPressed)
         {
-            if (count < brick.Length)
+            if (count < GiraffeBrick.Length)
             {
                 if (ButtonRotate.active)
                 {
-                    brick[count].transform.localRotation = Quaternion.Euler(0, 90f, 0);
+                    GiraffeBrick[count].transform.localRotation = Quaternion.Euler(0, 90f, 0);
                     ButtonRotate.active = false;
 
                 } else
                 {
-                    brick[count].transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    GiraffeBrick[count].transform.localRotation = Quaternion.Euler(0, 0, 0);
                 }
 
-                PlaceBrick.BrickLib = new Brick[] { brick[count] };
-                PlaceBrick.MatLib = new Material[] { mat[count] };
+                PlaceBrick.BrickLib = new Brick[] { GiraffeBrick[count] };
+                PlaceBrick.MatLib = new Material[] { GiraffeMaterial[count] };
                 count++;
                 Controller.Mode = Controller.ControllerMode.Build;
 

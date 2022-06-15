@@ -764,6 +764,10 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  br: []
+  mtrl: []
+  sprt: []
+  sprtside: []
 --- !u!114 &912840391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,6 +1501,10 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  br: []
+  mtrl: []
+  sprt: []
+  sprtside: []
 --- !u!114 &1640280673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,7 +1649,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.15294118, g: 0.16470589, b: 0.17254902, a: 0}
+  m_BackGroundColor: {r: 0.17176929, g: 0.18191524, b: 0.18867922, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
