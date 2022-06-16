@@ -64,31 +64,32 @@ public class PlaceBrick : MonoBehaviour
 
                 // Try to find a collision free position
                 var placePosition = position;
-
                 var rotation = CurrentBrick.transform.rotation;
-                switch (CurrentBrick.name)
+                
+                // 1x2 Brick fix
+                if (CurrentBrick.name == "0(Clone)" && (rotation.y is 0 || Math.Abs(rotation.y) is 1))
                 {
-                    // Костыль для детали 1х2
-                    case "0(Clone)" when (rotation.y is 0 || Math.Abs(rotation.y) is 1):
-                        placePosition.z = placePosition.z + 0.1f;
-                        break;
-                    case "0(Clone)":
-                        placePosition.x = placePosition.x + 0.1f;
-                        break;
-                    // Crutch for Stud
-                    case "9(Clone)":
-                        placePosition.z = placePosition.z + 0.1f;
-                        placePosition.x = placePosition.x + 0.1f;
-                        break;
+                    placePosition.z = placePosition.z + 0.1f;
+                }
+                else if (CurrentBrick.name == "0(Clone)")
+                {
+                    placePosition.x = placePosition.x + 0.1f;
+                }
+                
+                // 1x1 Brick and Stud fix
+                if (CurrentBrick.name == "7(Clone)" || CurrentBrick.name == "8(Clone)")
+                {
+                    placePosition.z = placePosition.z + 0.1f;
+                    placePosition.x = placePosition.x + 0.1f;
                 }
 
-                // Crutch for 2x6 Plate
-                if ((CurrentBrick.name == "8(Clone)" || CurrentBrick.name == "6(Clone)") &&
+                // 2x6 Brick/Plate fix
+                if ((CurrentBrick.name == "4(Clone)" || CurrentBrick.name == "6(Clone)") &&
                     (CurrentBrick.transform.rotation.y is 0 || Math.Abs(CurrentBrick.transform.rotation.y) is 1))
                 {
                     placePosition.x = placePosition.x + 0.1f;
                 }
-                else if (CurrentBrick.name == "8(Clone)" || CurrentBrick.name == "6(Clone)")
+                else if (CurrentBrick.name == "4(Clone)" || CurrentBrick.name == "6(Clone)")
                 {
                     placePosition.z = placePosition.z + 0.1f;
                 }
@@ -119,10 +120,16 @@ public class PlaceBrick : MonoBehaviour
             counter++;
             CurrentBrick.SetMaterial(BrickMat);
             // var rot = CurrentBrick.transform.rotation;
+            // Debug.Log("XYZ//" + CurrentBrick.transform.position.x + 
+            //           "/" + CurrentBrick.transform.rotation.y + "/" + CurrentBrick.transform.position.z + "/ROT//" + 
+            //     CurrentBrick.transform.rotation.y);
+            Debug.Log(CurrentBrick.name +"," + CurrentBrick.transform.position + "," + CurrentBrick.transform.rotation);
+            ;
             CurrentBrick = null;
             SetNextBrick();
             // CurrentBrick.transform.rotation = rot;
             Controller.Mode = Controller.ControllerMode.Play;
+            
         }
 
         // Rotate Brick

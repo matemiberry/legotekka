@@ -38,7 +38,7 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         GiraffeBrick = new[] {br[0],br[0],br[0],br[0],br[0],br[1],br[1],br[0],br[0],br[1],br[0]};
         GiraffeMaterial = new[]
-            {mtrl[7], mtrl[7], mtrl[7], mtrl[3], mtrl[3], mtrl[7], mtrl[7], mtrl[7], mtrl[3], mtrl[7], mtrl[7]};
+            {mtrl[8], mtrl[8], mtrl[8], mtrl[4], mtrl[4], mtrl[8], mtrl[8], mtrl[8], mtrl[8], mtrl[8], mtrl[8]};
         GiraffeSprite = new[]
         {
             sprt[10], sprt[10], sprt[10], sprt[10], sprt[10], sprt[12], sprt[12], sprt[10], sprt[10],
