@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 912840391}
   - component: {fileID: 912840390}
   m_Layer: 5
-  m_Name: ButtonBuild
+  m_Name: giraffeBuild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -678,7 +678,7 @@ RectTransform:
   m_GameObject: {fileID: 912840388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0585, y: 1.0585, z: 1.0585}
   m_Children: []
   m_Father: {fileID: 1107650142}
   m_RootOrder: 0
@@ -800,14 +800,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 799437800749774840, guid: cb640cbb74a04014aa7b050a0664d733, type: 3}
+  m_Sprite: {fileID: -2690792559708188323, guid: d17f89ed8304b924ba841a4bd0b853e4,
+    type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
 --- !u!222 &912840393
 CanvasRenderer:

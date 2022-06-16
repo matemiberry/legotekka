@@ -31,24 +31,34 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         br = Resources.LoadAll("Bricks", typeof(Brick)).Cast<Brick>().ToArray();
         mtrl = Resources.LoadAll("Materials", typeof(Material)).Cast<Material>().ToArray();
-        sprt = Resources.LoadAll("Sprites", typeof(Sprite)).Cast<Sprite>().ToArray();
+        sprt = Resources.LoadAll("SpritesFront", typeof(Sprite)).Cast<Sprite>().ToArray();
+        sprtside = Resources.LoadAll("SpritesSide", typeof(Sprite)).Cast<Sprite>().ToArray();
         
         // sprites = Resources.LoadAll("Materials", typeof(Sprite)).Cast<Sprite>().ToArray();
         // spritesRotate = Resources.LoadAll("Materials", typeof(Sprite)).Cast<Sprite>().ToArray();
 
-        GiraffeBrick = new[] {br[0],br[0],br[0],br[0],br[0],br[1],br[1],br[0],br[0],br[1],br[0]};
+        GiraffeBrick = new[]
+        {
+            br[0],br[0],br[0],br[0],br[0],br[1],br[1],br[0],br[0],br[1],br[0]
+        };
+        
         GiraffeMaterial = new[]
-            {mtrl[8], mtrl[8], mtrl[8], mtrl[4], mtrl[4], mtrl[8], mtrl[8], mtrl[8], mtrl[8], mtrl[8], mtrl[8]};
+        {
+            mtrl[8], mtrl[8], mtrl[8], mtrl[4], mtrl[4], mtrl[8], mtrl[8], mtrl[8], mtrl[8], mtrl[8], mtrl[8]
+        };
+        
         GiraffeSprite = new[]
         {
-            sprt[10], sprt[10], sprt[10], sprt[10], sprt[10], sprt[12], sprt[12], sprt[10], sprt[10],
-            sprt[12], sprt[10],
+            sprt[0], sprt[0], sprt[0], sprt[0], sprt[0], sprt[1],
+            sprt[1], sprt[0], sprt[0], sprt[0], sprt[0]
         };
+
         GiraffeSpriteSide = new[]
         {
-            sprt[11], sprt[11], sprt[11], sprt[11], sprt[11], sprt[12],
-            sprt[12], sprt[11], sprt[11], sprt[12], sprt[11],
+            sprtside[0], sprtside[0], sprtside[0], sprtside[0], sprtside[0], sprtside[1],
+            sprtside[1], sprtside[0], sprtside[0], sprtside[0], sprtside[0]
         };
+        
         sprites = GiraffeSprite;
         spritesRotate = GiraffeSpriteSide;
     }

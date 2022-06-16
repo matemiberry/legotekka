@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlaceBrick : MonoBehaviour
@@ -148,13 +149,23 @@ public class PlaceBrick : MonoBehaviour
                 if (brick != null)
                 {
                     GameObject.DestroyImmediate(brick.gameObject);
-                    PlaceBrick.MouseInput0 = 0;
-                    PlaceBrick.MouseInput1 = 1;
-                    Click4x2.count--;
-                    curButton.GetComponent<Image>().sprite = Click4x2.sprites[Click4x2.count];
+                    MouseInput0 = 0;
+                    MouseInput1 = 1;
                     Controller.Mode = Controller.ControllerMode.Play;
                     ClickDelete.active = false;
+                    if (SceneManager.GetActiveScene().name == "GiraffeScene")
+                    {
+                        Click4x2.count--;
+                        curButton.GetComponent<Image>().sprite = Click4x2.sprites[Click4x2.count];
+                    }
+                    else if (SceneManager.GetActiveScene().name == "CrocodileScene")
+                    {
+                        CrocodileBuild.count--;
+                        curButton.GetComponent<Image>().sprite = CrocodileBuild.sprites[CrocodileBuild.count];
+                    }
+                    
                     counter--;
+
                 }
         
             }
