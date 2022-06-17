@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public static int count;
+    public static int count = 0;
     public UnityEvent onPressAction;
 
     private bool _isPressed;
@@ -17,6 +17,7 @@ public class Click4x2 : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     private void Start()
     {
+        count = 0;
         var br = Resources.LoadAll("Bricks", typeof(Brick)).Cast<Brick>().ToArray();
         var mtrl = Resources.LoadAll("Materials", typeof(Material)).Cast<Material>().ToArray();
         var sprt = Resources.LoadAll("SpritesFront", typeof(Sprite)).Cast<Sprite>().ToArray();

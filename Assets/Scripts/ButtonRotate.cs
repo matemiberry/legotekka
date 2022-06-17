@@ -21,8 +21,7 @@ public class ButtonRotate : MonoBehaviour
     private void TaskOnClick()
     {
         rotateButtonCounter++;
-        Debug.Log(rotateButtonCounter);
-        
+
         if (!active)
         {
             active = true;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CrocodileBuild : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public static int count;
+    public static int count = 0;
     public UnityEvent onPressAction;
     private bool _isPressed;
     protected Brick[] CrocodileBricks;
@@ -19,6 +19,7 @@ public class CrocodileBuild : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     private void Start()
     {
+        count = 0;
         var br = Resources.LoadAll("Bricks", typeof(Brick)).Cast<Brick>().ToArray();
         var mtrl = Resources.LoadAll("Materials", typeof(Material)).Cast<Material>().ToArray();
         var sprt = Resources.LoadAll("SpritesFront", typeof(Sprite)).Cast<Sprite>().ToArray();
@@ -85,5 +86,7 @@ public class CrocodileBuild : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
             _isPressed = false;
         }
+        
+        
     }
 }

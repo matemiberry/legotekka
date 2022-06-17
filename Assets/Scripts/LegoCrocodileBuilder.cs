@@ -4,7 +4,7 @@ using UnityEngine;
 public class LegoCrocodileBuilder : MonoBehaviour
 {
     public GameObject[] bricksList;
-    public static int count;
+    private static int _count = 0;
     public AudioSource correctSound;
 
     private readonly object[,] _scheme = new object[21, 4]
@@ -36,22 +36,23 @@ public class LegoCrocodileBuilder : MonoBehaviour
 
     private void Start()
     {
+        _count = 0;
         bricksList = Resources.LoadAll("Ghosts", typeof(GameObject)).Cast<GameObject>().ToArray();
-        Instantiate(bricksList[(int) _scheme[count, 3]], (Vector3) _scheme[0, 1], (Quaternion) _scheme[0, 2]);
+        Instantiate(bricksList[(int) _scheme[_count, 3]], (Vector3) _scheme[0, 1], (Quaternion) _scheme[0, 2]);
     }
 
     private void Update()
     {
-        if (GameObject.Find((string) _scheme[count, 0]) != null)
-            if (GameObject.Find((string) _scheme[count, 0]).transform.position == (Vector3) _scheme[count, 1] &&
+        if (GameObject.Find((string) _scheme[_count, 0]) != null)
+            if (GameObject.Find((string) _scheme[_count, 0]).transform.position == (Vector3) _scheme[_count, 1] &&
                 Input.GetMouseButtonUp(0))
-                if (count != _scheme.Length)
+                if (_count != _scheme.Length)
                 {
                     
-                    Instantiate(bricksList[(int) _scheme[count + 1, 3]], (Vector3) _scheme[count + 1, 1],
-                        (Quaternion) _scheme[count + 1, 2]);
+                    Instantiate(bricksList[(int) _scheme[_count + 1, 3]], (Vector3) _scheme[_count + 1, 1],
+                        (Quaternion) _scheme[_count + 1, 2]);
                     correctSound.Play();
-                    count++;
+                    _count++;
                 }
     }
 }

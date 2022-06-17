@@ -4,7 +4,7 @@ using UnityEngine;
 public class LegoBuilder : MonoBehaviour
 {
     public GameObject[] bricksList;
-    public static int count;
+    public static int count = 0;
     public AudioSource correctSound;
 
     private readonly object[,] giraffeScheme = new object[11, 2]
@@ -24,6 +24,7 @@ public class LegoBuilder : MonoBehaviour
 
     private void Start()
     {
+        count = 0;
         bricksList = Resources.LoadAll("Ghosts", typeof(GameObject)).Cast<GameObject>().ToArray();
         Instantiate(bricksList[0], (Vector3) giraffeScheme[0, 1], Quaternion.identity);
     }
