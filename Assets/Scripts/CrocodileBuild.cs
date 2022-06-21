@@ -1,30 +1,31 @@
 ﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CrocodileBuild : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+<<<<<<< Updated upstream
     public static int count;
     public UnityEvent onPressAction;
+=======
+    public static int count = 0;
+>>>>>>> Stashed changes
     private bool _isPressed;
     protected Brick[] CrocodileBricks;
     protected Material[] CrocodileMaterials;
     public static Sprite[] CrocodileSprites;
     public static Sprite[] CrocodileSpritesRotate;
-
-
-    protected int[] TestMat;
+    
 
     private void Start()
     {
         var br = Resources.LoadAll("Bricks", typeof(Brick)).Cast<Brick>().ToArray();
-        var mtrl = Resources.LoadAll("Materials", typeof(Material)).Cast<Material>().ToArray();
+        var mtl = Resources.LoadAll("Materials", typeof(Material)).Cast<Material>().ToArray();
         var sprt = Resources.LoadAll("SpritesFront", typeof(Sprite)).Cast<Sprite>().ToArray();
         var spsd = Resources.LoadAll("SpritesSide", typeof(Sprite)).Cast<Sprite>().ToArray();
 
-
+        Debug.Log(br[3] +""+ br[4] +""+ br[5]);
         CrocodileBricks = new[]
         {
             br[3], br[4], br[4], br[2], br[2], br[5], br[5], br[6], br[2], br[5],
@@ -34,9 +35,9 @@ public class CrocodileBuild : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
         CrocodileMaterials = new[]
         {
-            mtrl[7], mtrl[2], mtrl[2], mtrl[2], mtrl[2], mtrl[2], mtrl[2], mtrl[7], mtrl[2], mtrl[2],
-            mtrl[2], mtrl[2], mtrl[3], mtrl[2], mtrl[7], mtrl[7], mtrl[7], mtrl[7], mtrl[2], mtrl[2],
-            mtrl[2]
+            mtl[7], mtl[2], mtl[2], mtl[2], mtl[2], mtl[2], mtl[2], mtl[7], mtl[2], mtl[2],
+            mtl[2], mtl[2], mtl[3], mtl[2], mtl[7], mtl[7], mtl[7], mtl[7], mtl[2], mtl[2],
+            mtl[2]
         };
 
         CrocodileSprites = new[]

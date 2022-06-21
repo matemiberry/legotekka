@@ -4,7 +4,11 @@ using UnityEngine;
 public class LegoCrocodileBuilder : MonoBehaviour
 {
     public GameObject[] bricksList;
+<<<<<<< Updated upstream
     public static int count;
+=======
+    private static int count = 0;
+>>>>>>> Stashed changes
     public AudioSource correctSound;
 
     private readonly object[,] _scheme = new object[21, 4]
@@ -36,6 +40,10 @@ public class LegoCrocodileBuilder : MonoBehaviour
 
     private void Start()
     {
+<<<<<<< Updated upstream
+=======
+        count = 0;
+>>>>>>> Stashed changes
         bricksList = Resources.LoadAll("Ghosts", typeof(GameObject)).Cast<GameObject>().ToArray();
         Instantiate(bricksList[(int) _scheme[count, 3]], (Vector3) _scheme[0, 1], (Quaternion) _scheme[0, 2]);
     }
